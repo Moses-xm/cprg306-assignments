@@ -25,7 +25,7 @@ export default function NewItem() {
       />
       <button
         type="button"
-        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity <= 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
+        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity <= 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 cursor-pointer'}`}
 
         onClick={decrement}
         disabled={quantity <= 0}
@@ -34,7 +34,7 @@ export default function NewItem() {
       </button>
       <button
         type="button"
-        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity >= 20 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
+        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity >= 20 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 cursor-pointer'}`}
         onClick={increment}
         disabled={quantity >= 20}
       >
