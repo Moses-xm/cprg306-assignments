@@ -11,7 +11,7 @@ export default function NewItem() {
   };
 
   const decrement = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
@@ -25,10 +25,10 @@ export default function NewItem() {
       />
       <button
         type="button"
-        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity <= 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 cursor-pointer'}`}
+        className={`px-3 py-1 rounded font-extrabold text-lg text-white ${quantity <= 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 cursor-pointer'}`}
 
         onClick={decrement}
-        disabled={quantity <= 0}
+        disabled={quantity <= 1}
       >
         -
       </button>
