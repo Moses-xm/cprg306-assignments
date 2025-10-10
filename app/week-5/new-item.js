@@ -21,6 +21,7 @@ export default function NewItem() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const item = { name, quantity, category };
+    console.log(item);
     alert(JSON.stringify(item));
     setName('');
     setQuantity(1);
