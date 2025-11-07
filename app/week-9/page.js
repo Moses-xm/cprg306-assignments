@@ -1,5 +1,6 @@
-"use client";
-import { useUserAuth } from "./_utils/auth-context";
+'use client';
+import Link from 'next/link';
+import { useUserAuth } from './_utils/auth-context';
 
 // Display some of the user's information
 export default function LandingPage() {
@@ -44,6 +45,12 @@ export default function LandingPage() {
             </button>
           </div>
         )}
+        <Link
+          href="/week-9/shopping-list"
+          style={{ color: 'green', marginTop: '20px', display: 'inline-block' }}
+        >
+          Go to Shopping List Page
+        </Link>
       </div>
     </div>
   );

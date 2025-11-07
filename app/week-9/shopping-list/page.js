@@ -1,10 +1,11 @@
 'use client';
-import { useUserAuth } from "../_utils/auth-context";
+import Link from 'next/link';
 import { useState } from 'react';
 import ItemList from './item-list';
 import MealIdeas from './meal-ideas';
 import NewItem from './new-item';
 import itemsData from './items.json';
+import { useUserAuth } from '../_utils/auth-context';
 
 export default function Page() {
   const { user } = useUserAuth();
@@ -33,7 +34,10 @@ export default function Page() {
   if (!user) {
     return (
       <div className="min-h-screen bg-black px-4 py-8 text-white">
-        <p>Please log in to view your shopping list.</p>
+        <p className="mb-2">Please log in to view your shopping list.</p>
+        <Link href="/week-9" style={{ color: 'green' }}>
+          Go to Landing Page
+        </Link>
       </div>
     );
   }
@@ -41,7 +45,9 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-black px-4 py-8 text-white">
       <div className="mx-auto max-w-5xl">
-        <h1 className="text-4xl font-bold tracking-wide md:text-5xl">Shopping List</h1>
+        <h1 className="text-4xl font-bold tracking-wide md:text-5xl">
+          Shopping List
+        </h1>
         <div className="mt-8 flex flex-col gap-4 md:flex-row">
           <div>
             <NewItem onAddItem={handleAddItem} />
@@ -51,6 +57,12 @@ export default function Page() {
             <MealIdeas ingredient={selectedItemName} />
           </div>
         </div>
+        <Link
+          href="/week-9"
+          style={{ color: 'green', marginTop: '20px', display: 'inline-block' }}
+        >
+          Go to Landing Page
+        </Link>
       </div>
     </main>
   );
