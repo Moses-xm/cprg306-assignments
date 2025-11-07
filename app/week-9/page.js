@@ -7,10 +7,17 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black px-4 py-8 text-white">
       <div className="mx-auto max-w-5xl">
-        <p className="font-bold">Assignment 9 - Welcome to the Shopping List App</p>
+        <p className="font-bold">
+          Assignment 9 - Welcome to the Shopping List App
+        </p>
         {user ? (
           <div className="mt-4">
-            <p className="text-lg">Welcome, {user.displayName ?? user?.providerData?.[0]?.displayName ??(user?.email ? user.email.split('@')[0] : 'User')}</p>
+            <p className="text-lg">
+              Welcome,{' '}
+              {user.displayName ??
+                user?.providerData?.[0]?.displayName ??
+                (user?.email ? user.email.split('@')[0] : 'User')}
+            </p>
             <p className="text-lg">Your Email is: {user.email}</p>
             <p className="text-lg">And here is your image!</p>
             {user.photoURL && (
@@ -25,14 +32,6 @@ export default function LandingPage() {
             >
               Sign Out
             </button>
-            <div className="mt-4">
-              <a
-                href="/week-9/shopping-list"
-                className="rounded bg-green-600 px-4 py-2 hover:bg-green-700"
-              >
-                Go to Shopping List
-              </a>
-            </div>
           </div>
         ) : (
           <div className="mt-4">
