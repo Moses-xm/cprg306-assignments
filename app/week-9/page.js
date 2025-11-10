@@ -25,6 +25,14 @@ export default function LandingPage() {
             >
               Sign Out
             </button>
+            <div className="mt-4">
+              <a
+                href="/week-9/shopping-list"
+                className="rounded bg-green-600 px-4 py-2 hover:bg-green-700"
+              >
+                Go to Shopping List
+              </a>
+            </div>
           </div>
         ) : (
           <div className="mt-4">
