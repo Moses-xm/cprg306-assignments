@@ -1,19 +1,31 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ItemList from './item-list';
 import MealIdeas from './meal-ideas';
 import NewItem from './new-item';
-import itemsData from './items.json';
 import { useUserAuth } from '../_utils/auth-context';
+import { getItems, addItem } from '../_services/shopping-list-service';
 
 export default function Page() {
   const { user } = useUserAuth();
-  const [items, setItems] = useState(itemsData);
+
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState('');
 
-  const handleAddItem = (newItem) => {
-    setItems((prevItems) => [...prevItems, newItem]);
+  const loadItems = async () => {
+    if (!user) return;
+    const fetchedItems = await getItems(user.uid);
+    setItems(fetchedItems);
+  }
+
+  useEffect(()=>{
+    loadItems();
+  },[user])
+
+  const handleAddItem = async (newItem) => {
+    const id = await addItem(user.uid, newItem);
+    setItems(prev => [...prev, { id, ...newItem }]);
   };
 
   const handleItemSelect = (item) => {
@@ -35,7 +47,7 @@ export default function Page() {
     return (
       <div className="min-h-screen bg-black px-4 py-8 text-white">
         <p className="mb-2">Please log in to view your shopping list.</p>
-        <Link href="/week-9" style={{ color: 'green' }}>
+        <Link href="/week-10" style={{ color: 'green' }}>
           Go to Landing Page
         </Link>
       </div>
@@ -58,7 +70,7 @@ export default function Page() {
           </div>
         </div>
         <Link
-          href="/week-9"
+          href="/week-10"
           style={{ color: 'green', marginTop: '20px', display: 'inline-block' }}
         >
           Go to Landing Page

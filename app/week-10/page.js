@@ -46,7 +46,7 @@ export default function LandingPage() {
           </div>
         )}
         <Link
-          href="/week-9/shopping-list"
+          href="/week-10/shopping-list"
           style={{ color: 'green', marginTop: '20px', display: 'inline-block' }}
         >
           Go to Shopping List Page
