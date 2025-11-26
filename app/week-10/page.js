@@ -9,7 +9,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-black px-4 py-8 text-white">
       <div className="mx-auto max-w-5xl">
         <p className="font-bold">
-          Assignment 9 - Welcome to the Shopping List App
+          Assignment 10 - Welcome to the Shopping List App
         </p>
         {user ? (
           <div className="mt-4">
